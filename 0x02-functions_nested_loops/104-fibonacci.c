@@ -1,29 +1,31 @@
 #include <stdio.h>
 
-/*
- * main - prints the first 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.
- * Return: 0 (success)
- */
+/**
+  * main - finds and prints the sum of the even=valued terms
+  * followed by a new line
+  * Return: Always 0 (Success)
+  */
 int main(void)
 {
-    int i;  /* loop counter */
-    unsigned long int fib1 = 1;  /* first Fibonacci number */
-    unsigned long int fib2 = 2;  /* second Fibonacci number */
+	int i;
+	unsigned long int num1, num2, next, sum;
 
-    printf("%lu, %lu", fib1, fib2);
+	num1 = 1;
+	num2 = 2;
+	sum = 0;
 
-    for (i = 3; i <= 98; i++) {  /* loop from 3 to 98 */
+	for (i = 1; i <= 33; i++)
+	{
+		if (num1 < 4000000 && (num1 % 2) == 0)
+		{
+			sum = sum + num1;
+		}
+		next = num1 + num2;
+		num1 = num2;
+		num2 = next;
+	}
 
-        unsigned long int nextFib = fib1 + fib2;  /* calculate next Fibonacci number */
+	printf("%lu\n", sum);
 
-        printf(", %lu", nextFib);  /* print it with a comma and space before it */
-
-        fib1 = fib2;  /* update the first and second Fibonacci numbers for the next iteration of the loop */
-        fib2 = nextFib;
-
-    }
-
-    printf("\n");  /* print a new line at the end of the output */
-
-    return (0);
+	return (0);
 }
